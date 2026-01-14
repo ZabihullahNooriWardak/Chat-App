@@ -1,3 +1,4 @@
+import 'package:chat_app/modules/chats/screens/chat_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen>
         controller: _tabController,
         children: [
           Center(child: Text("Camera Screen")),
-          Center(child: Text("Chats Screen")),
+          ChatView(),
           Center(child: Text("Status Screen")),
           Center(child: Text("Calls Screen")),
         ],
