@@ -24,6 +24,9 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           PopupMenuButton(
+            onSelected: (value) {
+              print(value);
+            },
             itemBuilder: (context) => [
               PopupMenuItem(child: Text("New group")),
               PopupMenuItem(child: Text("Settings")),
