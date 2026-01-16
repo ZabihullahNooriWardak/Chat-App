@@ -13,31 +13,32 @@ class _ChatDetailsViewState extends State<ChatDetailsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-     
         leadingWidth: double.infinity,
-        leading: Row(
-          
-          children: [
-            BackButton(),
-            CircleAvatar(
-              radius: 20,
-              child: Icon(
-                widget.chatModel.isGroup ? Icons.group : Icons.person,
-              ),
-            ),
-            SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  widget.chatModel.name,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        leading: InkWell(
+          onTap: () {},
+          child: Row(
+            children: [
+              BackButton(),
+              CircleAvatar(
+                radius: 20,
+                child: Icon(
+                  widget.chatModel.isGroup ? Icons.group : Icons.person,
                 ),
-                Text('12:00 AM', style: TextStyle(fontSize: 12)),
-              ],
-            ),
-          ],
+              ),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.chatModel.name,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                  Text('12:00 AM', style: TextStyle(fontSize: 12)),
+                ],
+              ),
+            ],
+          ),
         ),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.video_call_outlined)),
