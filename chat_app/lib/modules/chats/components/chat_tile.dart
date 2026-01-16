@@ -1,13 +1,22 @@
 import 'package:chat_app/modules/chats/models/chat_model.dart';
+import 'package:chat_app/modules/chats/screens/chat_details_view.dart';
 import 'package:flutter/material.dart';
 
 class ChatTile extends StatelessWidget {
-  const ChatTile({super.key, required this.conversationTile});
-  final ChatModel conversationTile;
+  const ChatTile({super.key, required this.chatTile});
+  final ChatModel chatTile;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return ChatDetailsView(chatModel: chatTile);
+            },
+          ),
+        );
+      },
       child: Column(
         children: [
           ListTile(
@@ -15,23 +24,23 @@ class ChatTile extends StatelessWidget {
               backgroundColor: Colors.blueGrey,
               radius: 25,
               child: Icon(
-                conversationTile.isGroup ? Icons.group : Icons.person,
+                chatTile.isGroup ? Icons.group : Icons.person,
                 color: Colors.white,
                 size: 30,
               ),
             ),
             title: Text(
-              conversationTile.name,
+              chatTile.name,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             subtitle: Row(
               children: [
                 Icon(Icons.done_all),
                 SizedBox(width: 10),
-                Text(conversationTile.currentMessage),
+                Text(chatTile.currentMessage),
               ],
             ),
-            trailing: Text(conversationTile.time),
+            trailing: Text(chatTile.time),
           ),
           Padding(
             padding: EdgeInsets.only(left: 80, right: 20),

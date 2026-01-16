@@ -11,13 +11,13 @@ class ChatView extends StatefulWidget {
 }
 
 class _ChatViewState extends State<ChatView> {
-  List<ChatModel> conversations = chatModelDummyData;
+  List<ChatModel> chats = chatModelDummyData;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: conversations.length,
+      itemCount: chats.length,
       itemBuilder: (context, index) {
-        return ChatTile(conversationTile: conversations[index]);
+        return ChatTile(chatTile: chats[index]);
       },
     );
   }
